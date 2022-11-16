@@ -1,0 +1,25 @@
+POST http://localhost:3000/api/v1/cursos HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "Nuevo Added",
+  "age": 35,
+  "height": 1.78,
+  "weight": "91 kg",
+  "girlFriend": []
+}
+
+###
+
+PUT http://localhost:3000/api/v1/cursos/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Denny Update",
+  "age": 35,
+  "height": 1.78,
+  "weight": "91 kg",
+  "girlFriend": []
+}
