@@ -1,5 +1,4 @@
 const express = require('express')
-const dataUsers = require('./data/user')
 
 const app = express()
 
