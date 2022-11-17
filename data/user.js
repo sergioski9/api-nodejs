@@ -1,4 +1,4 @@
-const data = [
+const dataUsers = [
   {
     "id": 1,
     "name": "Sergio Rodas",
@@ -78,4 +78,4 @@ const data = [
   }
 ]
 
-module.exports = data
+export default dataUsers

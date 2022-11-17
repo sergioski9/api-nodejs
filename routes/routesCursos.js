@@ -1,10 +1,10 @@
-const express = require('express')
-const dataCursos = require('../data/cursos')
+import express from 'express'
+import dataCursos from './../data/cursos.js'
 
 const routingCursos = express.Router()
 routingCursos.use(express.json())
 
-routingCursos.get('/', (req, res) => {
+routingCursos.get('/', (_req, res) => {
   res.send(dataCursos)
 })
 
@@ -46,4 +46,4 @@ routingCursos.put('/:id', (req, res) => {
   res.status(400).send('No se pudo realizar la actualizacion debido a un error de datos o del servidor...')
 })
 
-module.exports = routingCursos
+export default routingCursos
