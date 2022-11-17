@@ -1,10 +1,10 @@
-const express = require('express')
-const dataUsers = require('../data/user')
+import express from 'express'
+import dataUsers from './../data/user.js'
 
 const routingUser = express.Router()
 routingUser.use(express.json())
 
-routingUser.get('/', (req, res) => {
+routingUser.get('/', (_req, res) => {
   res.send(dataUsers)
 })
 
@@ -46,5 +46,4 @@ routingUser.put('/:id', (req, res) => {
   res.status(400).send('No se pudo realizar la actualizacion debido a un error de datos o del servidor...')
 })
 
-
-module.exports = routingUser
+export default routingUser
