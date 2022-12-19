@@ -11,7 +11,7 @@ app.use('/api/v1/cursos', routingCursos)
 
 // Home the APIRESTful
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.send(`
   <!DOCTYPE html>
   <html lang="en">
