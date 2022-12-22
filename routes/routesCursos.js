@@ -5,7 +5,7 @@ const routingCursos = express.Router()
 routingCursos.use(express.json())
 
 routingCursos.get('/', (_req, res) => {
-  res.send(dataCursos)
+  res.status(200).send(dataCursos)
 })
 
 routingCursos.get('/:id', (req, res) => {
@@ -13,7 +13,7 @@ routingCursos.get('/:id', (req, res) => {
   const user = dataCursos.filter((curso) => curso.id == id)[0]
 
   if (user) {
-    return res.send(user)
+    return res.status(200).send(user)
   }
 
   res.status(404).send('No se encontro ningun resultado')
@@ -24,7 +24,7 @@ routingCursos.post('/', (req, res) => {
 
   if (cursoInfoForAdd) {
     dataCursos.push(cursoInfoForAdd)
-    res.send(dataCursos)
+    res.status(200).send(dataCursos)
   }
 
   res.status(400).send('Datos incorrectos o informacion no recibida')
@@ -40,7 +40,7 @@ routingCursos.put('/:id', (req, res) => {
     const currentCurso = dataCursos[indexCursoUpdate]
 
     Object.assign(currentCurso, bodyReq)
-    res.send(dataCursos)
+    res.status(200).send(dataCursos)
   }
 
   res.status(400).send('No se pudo realizar la actualizacion debido a un error de datos o del servidor...')
