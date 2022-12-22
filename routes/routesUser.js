@@ -5,7 +5,7 @@ const routingUser = express.Router()
 routingUser.use(express.json())
 
 routingUser.get('/', (_req, res) => {
-  res.send(dataUsers)
+  res.status(200).send(dataUsers)
 })
 
 routingUser.get('/:id', (req, res) => {
@@ -13,7 +13,7 @@ routingUser.get('/:id', (req, res) => {
   const user = dataUsers.filter((user) => user.id == id)[0]
 
   if (user) {
-    return res.send(user)
+    return res.status(200).send(user)
   }
 
   res.status(404).send('No se encontro ningun resultado')
@@ -24,7 +24,7 @@ routingUser.post('/', (req, res) => {
 
   if (userInfoForAdd) {
     dataUsers.push(userInfoForAdd)
-    res.send(dataUsers)
+    res.status(200).send(dataUsers)
   }
 
   res.status(400).send('Datos incorrectos o informacion no recibida')
@@ -34,13 +34,13 @@ routingUser.put('/:id', (req, res) => {
   const id = req.params.id
   const bodyReq = req.body
 
-  const indexUserUpdate = dataUsers.findIndex((curso) => curso.id == id)
+  const indexUserUpdate = dataUsers.findIndex((user) => user.id == id)
 
   if (indexUserUpdate >= 0) {
     const currentUser = dataUsers[indexUserUpdate]
 
     Object.assign(currentUser, bodyReq)
-    res.send(dataUsers)
+    res.status(200).send(dataUsers)
   }
 
   res.status(400).send('No se pudo realizar la actualizacion debido a un error de datos o del servidor...')
